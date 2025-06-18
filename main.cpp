@@ -27,15 +27,49 @@ double FarengeitToCelsia(double farengeit){
 }
 
 int main(){
-    double kelvin = 150;
-    cout << "Кельвин в Цельсий: " << KelvinToCelsia(kelvin) << endl;
-    cout << "Кельвин в Фаренгейт: " << KelvinToFarengeit(kelvin) << endl;
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+    double temperature;
+    char scale, targetScale;
 
-    double celsia = 50;
-    cout << "Цельсия в Кельвин: " << CelsiaToKelvin(celsia) << endl;
-    cout << "Цельсия в Фаренгейт: " << CelsiaToFarengeit(celsia) << endl;
+    cout << "Введите сначала температуру и потом единицу измерения K - Кельвин, C - Цельсий, F - Фаренгейт (Например: 230 K ):" << endl;
+    cin >> temperature >> scale;
 
-    double farengeit = 35;
-    cout << "Фаренгейт в Кельвин: " << FarengeitToKelvin(farengeit) << endl;
-    cout << "Фаренгейт в Цельсий: " << FarengeitToCelsia(farengeit) << endl;
+cout << "Введите ту единицу измерения в которую хотите перевести (K - Кельвин, C - Цельсий, F - Фаренгейт):" << endl;
+cin >> targetScale;
+
+    if (scale == 'K'){
+        if (targetScale == 'C'){
+    cout << "Кельвин в Цельсий: " << KelvinToCelsia(temperature) << endl;
+    }
+        else if(targetScale == 'F'){
+    cout << "Кельвин в Фаренгейт: " << KelvinToFarengeit(temperature) << endl;
+    }
+    else {
+    cout << "Невозможно перевести Кельвины в Кельвины!" << endl;
+    }
+}
+
+    else if (scale == 'C'){
+        if (targetScale == 'K'){
+    cout << "Цельсия в Кельвин: " << CelsiaToKelvin(temperature) << endl;
+    }
+    else if(targetScale == 'F'){
+    cout << "Цельсия в Фаренгейт: " << CelsiaToFarengeit(temperature) << endl;
+    }
+    else {
+        cout << "Невозможно перевести Цельсии в Цельсии!" << endl;
+    }
+}
+
+    else if (scale == 'F'){
+        if(targetScale == 'K'){
+    cout << "Фаренгейт в Кельвин: " << FarengeitToKelvin(temperature) << endl;
+    }
+    else if(targetScale == 'C'){
+    cout << "Фаренгейт в Цельсий: " << FarengeitToCelsia(temperature) << endl;
+    }
+    else{
+        cout << "Невозможно перевести Фаренгейт в Фаренгейт!" << endl;
+    }
+}
 }
